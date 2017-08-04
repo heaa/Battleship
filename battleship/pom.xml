@@ -36,10 +36,10 @@
                 <version>1.1.8</version>
                 <configuration>
                     <targetClasses>
-                        <param>heaa.battleship.*</param>
+                        <param>heaa.battleship.models.*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>heaa.battleship.*</param>
+                        <param>heaa.battleship.models.*</param>
                     </targetTests>
                 </configuration>
             </plugin>
