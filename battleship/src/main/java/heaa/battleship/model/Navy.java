@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package heaa.battleship.models;
+package heaa.battleship.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,18 +13,21 @@ import java.util.List;
  * @author heaarnio
  */
 public class Navy {
+
     private List<Ship> ships;
-    
-    public Navy(){
+
+    public Navy() {
         this.ships = new ArrayList<>();
     }
-    
+
     public List<Ship> getShips() {
         return this.ships;
     }
+
     public void addShip(Ship ship) {
         this.ships.add(ship);
     }
+
     public boolean damage(Position position) {
         for (Ship ship : ships) {
             if (ship.getPositions().contains(position)) {
@@ -34,6 +37,7 @@ public class Navy {
         }
         return false;
     }
+
     public boolean canShipBeAdded(List<Position> desiredLocations) {
         List<Position> locationsWhereCannotBeShips = new ArrayList<>(desiredLocations);
         desiredLocations.forEach(l -> {
@@ -55,13 +59,5 @@ public class Navy {
         }
         return false;
     }
-    
-    
-    
-  
-    
-    
-    
-    
-    
+
 }

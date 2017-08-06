@@ -1,14 +1,10 @@
+package heaa.battleship.model;
 
-package heea.battleship.models;
-
-import heaa.battleship.models.Position;
-import heaa.battleship.models.Ship;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
 
 public class ShipTest {
     private Ship ship;

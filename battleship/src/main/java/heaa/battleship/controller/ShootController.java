@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package heaa.battleship.models;
+package heaa.battleship.controller;
 
 /**
  *
  * @author heaarnio
  */
-abstract class Director {
+public class ShootController {
     
 }

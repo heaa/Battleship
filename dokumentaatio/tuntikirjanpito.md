@@ -8,4 +8,6 @@ Päivä | Tunnit | Kuvaus
 31.07.2017 | 2 h | Alustava luokkakaavio ja projektin aloitus
 02.07.2017 | 2.5 h | Model-luokkien ohjelmointia, ensimmäisten testien tekoa
 04.07.2017 | 1.25 h | Testien ohjelmointia, yritystä saada PIT-raportti toimimaan
+05.07.2017 | 2 h | Uusien controller-luokkien ohjelmointia, testejä
+06.07.2017 | 2 h | Testejä, dokumentaatiota (checkstyle, pit, luokkakaavion puhtaaksi piirtäminen)
 

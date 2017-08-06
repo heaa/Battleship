@@ -15,3 +15,8 @@ Peli etenee vuoropohjaisesti siten, että kumpikin pelaaja ampuu vuorollaan yhte
 - ampuminen
 - pisteiden tallentaminen
 - tulosnäkymän esittäminen pelin lopussa
+
+**Luokkakaavio:**
+
+![Määrittelyvaiheen luokkakaavio](/dokumentaatio/luokkakaavio.jpg)
+
