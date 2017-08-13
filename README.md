@@ -9,3 +9,7 @@ Laivanupotuspeli, jossa ihmispelaaja pelaa tietokonetta vastaan. Tavoitteena on 
 [Aiheen kuvaus](dokumentaatio/aiheenKuvausJaRakenne.md)
 
 [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
+
+[PIT-raportti]()
+
+[CheckStyle]()

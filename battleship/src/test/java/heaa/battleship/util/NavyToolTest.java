@@ -1,5 +1,5 @@
 
-package heaa.battleship.controller;
+package heaa.battleship.util;
 
 import heaa.battleship.model.Navy;
 import heaa.battleship.model.Position;

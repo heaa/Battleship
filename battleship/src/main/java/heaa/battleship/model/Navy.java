@@ -1,17 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package heaa.battleship.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author heaarnio
- */
+
 public class Navy {
 
     private List<Ship> ships;
@@ -30,14 +23,24 @@ public class Navy {
 
     public boolean damage(Position position) {
         for (Ship ship : ships) {
-            if (ship.getPositions().contains(position)) {
+            if (ship.hasPosition(position)) {
                 ship.deletePosition(position);
+                if (isShipDestroyed(ship)) {
+                    removeShipFromShipList(ship);
+                }
                 return true;
             }
         }
         return false;
     }
-
+    private boolean isShipDestroyed(Ship ship) {
+        return ship.getPositions().isEmpty();
+    }
+    
+    private void removeShipFromShipList(Ship ship) {
+        ships.remove(ship);
+    }
+    
     public boolean canShipBeAdded(List<Position> desiredLocations) {
         List<Position> locationsWhereCannotBeShips = new ArrayList<>(desiredLocations);
         desiredLocations.forEach(l -> {

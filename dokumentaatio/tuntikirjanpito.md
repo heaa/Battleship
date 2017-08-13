@@ -6,8 +6,13 @@ Päivä | Tunnit | Kuvaus
 25.07.2017 | 2h | Aiheen suunnittelua, repositorion luonti ja kurssisivuihin tutustuminen
 27.07.2017 | 1.5h | Aihemäärittely, tuntikirjanpito, labtooliin rekisteröityminen ja pushaus
 31.07.2017 | 2 h | Alustava luokkakaavio ja projektin aloitus
-02.07.2017 | 2.5 h | Model-luokkien ohjelmointia, ensimmäisten testien tekoa
-04.07.2017 | 1.25 h | Testien ohjelmointia, yritystä saada PIT-raportti toimimaan
-05.07.2017 | 2 h | Uusien controller-luokkien ohjelmointia, testejä
-06.07.2017 | 2 h | Testejä, dokumentaatiota (checkstyle, pit, luokkakaavion puhtaaksi piirtäminen)
+02.08.2017 | 2.5 h | Model-luokkien ohjelmointia, ensimmäisten testien tekoa
+04.08.2017 | 1.25 h | Testien ohjelmointia, yritystä saada PIT-raportti toimimaan
+05.08.2017 | 2 h | Uusien controller-luokkien ohjelmointia, testejä
+06.08.2017 | 2 h | Testejä, dokumentaatiota (checkstyle, pit, luokkakaavion puhtaaksi piirtäminen)
+09.08.2017 | 1 h | Controller-luokkien ohjelmointia
+10.08.2017 | 1.75 h | Controller-luokkien ja model-luokkien ohjelmointia
+12.08.2017 | 5 h | Käyttöliittymän ohjelmointia
+13.08.2017 | 7 h | Käyttöliittymä, controller-luokat, testejä, dokumentaatiota
+
 

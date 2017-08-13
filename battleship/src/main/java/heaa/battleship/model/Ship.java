@@ -1,28 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package heaa.battleship.model;
 
 import java.util.List;
 
-/**
- *
- * @author heaarnio
- */
+
 public class Ship {
 
-    private int length;
+   
     private List<Position> positions;
+    private int length;
 
     public Ship(int length) {
-        length = this.length;
+        this.length = length;
     }
 
-    public int getLength() {
-        return this.length;
-    }
+    
 
     public void setPositions(List<Position> positions) {
         this.positions = positions;

@@ -1,5 +1,5 @@
 
-package heaa.battleship.controller;
+package heaa.battleship.util;
 
 import heaa.battleship.model.Navy;
 import heaa.battleship.model.Position;
@@ -9,9 +9,8 @@ import java.util.List;
 
 public class NavyTool {
     
-    public Navy createNavy() {
-        Navy navy = new Navy();
-        return navy;
+    public static Navy createNavy() {
+        return new Navy();
     }
     
     public static Navy addShiptoNavy(Navy navy, List<Position> desiredPositions) throws RuntimeException {

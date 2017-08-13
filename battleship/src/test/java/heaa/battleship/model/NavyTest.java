@@ -30,7 +30,7 @@ public class NavyTest {
     
     @Test
     public void testAddShip() {
-        this.navy.addShip(new Ship(1));
+        this.navy.addShip(new Ship(2));
         assertEquals(2, navy.getShips().size());
     }
  
@@ -105,4 +105,20 @@ public class NavyTest {
    public void testShipCanBeAddedWithNullPositionList() {
        navy.canShipBeAdded(null);
    }
+   @Test
+   public void testShipDamage() {
+       Position position = new Position(1,2);
+       assertTrue(navy.damage(position));
+   }
+   @Test
+   public void testShipDestroyed() {
+       int navySizeFirst = navy.getShips().size();
+       Position position1 = new Position(1,2);
+       Position position2 = new Position(1,3);
+       navy.damage(position1);
+       navy.damage(position2);
+       int sizeDifference = Math.abs(navySizeFirst - navy.getShips().size());
+       assertEquals(1, sizeDifference);
+   }
+  
 }

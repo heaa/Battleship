@@ -1,26 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package heaa.battleship.controller;
 
 import heaa.battleship.model.AIPlayer;
 import heaa.battleship.model.HumanPlayer;
+import heaa.battleship.model.Position;
 
-/**
- *
- * @author heaarnio
- */
+
+
 public class GameController {
-    private AIPlayer computer;
     private HumanPlayer human;
+    private AIPlayer computer;
     
-    public void startGame() {
-     
+    
+    public void playTurn(Position position) {
+        computer.getGrid().shootGrid(position);
         
     }
     
+    public void playAITurn() {
+        // Do AI magic here or in the AI player model :)
+        // Which is like: 
+        Position position = computer.determineWhereToShoot(human.getGrid());
+        human.getGrid().shootGrid(position);
+    }
     
     
     

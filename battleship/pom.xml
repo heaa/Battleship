@@ -38,10 +38,12 @@
                     <targetClasses>
                         <param>heaa.battleship.model.*</param>
                         <param>heaa.battleship.controller.*</param>
+                        <param>heaa.battleship.util.NavyTool.java</param>
                     </targetClasses>
                     <targetTests>
                         <param>heaa.battleship.model.*</param>
                         <param>heaa.battleship.controller.*</param>
+                        <param>heaa.battleship.util.NavyToolTest.java</param>
                     </targetTests>
                 </configuration>
             </plugin>

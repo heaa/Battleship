@@ -9,14 +9,23 @@ package heaa.battleship.model;
  *
  * @author heaarnio
  */
-abstract class Player {
+public abstract class Player {
     
-    protected Navy navy;
+    protected Grid grid;
     
     public Player() {
-        
     }
     
+    public void setGrid(Grid grid) {
+        this.grid = grid;
+    }
     
+    public Grid getGrid() {
+        return grid;
+    }
+    
+    public boolean hasShips() {
+        return !(grid.getNavy().getShips().isEmpty());
+    }
     
 }
