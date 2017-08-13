@@ -10,6 +10,6 @@ Laivanupotuspeli, jossa ihmispelaaja pelaa tietokonetta vastaan. Tavoitteena on 
 
 [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
 
-[PIT-raportti]()
+[PIT-raportti](https://htmlpreview.github.io/?https://github.com/heaa/Battleship/blob/master/dokumentaatio/pit/index.html)
 
-[CheckStyle]()
+[CheckStyle](https://htmlpreview.github.io/?https://github.com/heaa/Battleship/blob/master/dokumentaatio/checkstyle/checkstyle.html)
