@@ -5,6 +5,10 @@ import heaa.battleship.model.Position;
 import java.awt.Color;
 import javax.swing.*;
 
+/**
+ * 
+ * Luokka, joka hallinnoi peliruudukon ruutuja.
+ */
 
 public class PositionView extends JButton {
     
@@ -14,7 +18,9 @@ public class PositionView extends JButton {
         super();
         this.createPosition(i, j);
         this.setUpForButtonLooks();
-        this.addMouseListener(new ShootListener(position));
+    }
+    public Position getPosition() {
+        return position;
     }
     private void createPosition(int i, int j) {
         this.position = new Position(i, j);

@@ -14,5 +14,9 @@ Päivä | Tunnit | Kuvaus
 10.08.2017 | 1.75 h | Controller-luokkien ja model-luokkien ohjelmointia
 12.08.2017 | 5 h | Käyttöliittymän ohjelmointia
 13.08.2017 | 7 h | Käyttöliittymä, controller-luokat, testejä, dokumentaatiota
+17.08.2017 | 1.5 h | Koodikatselmukseen osallistuminen
+18.08.2017 | 3.5 h | Käyttöliittymän näkymien ohjelmointia
+19.08.2017 | 4 h | Käyttöliittymän ohjelmointia
+20.08.2017 | 7 h | Käyttöliittymän ohjelmointia, javadocin kirjoittaminen
 
 

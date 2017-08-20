@@ -6,35 +6,78 @@
 </head>
 <body>
 <div id="overview"><a href="../../../../apidocs/heaa/battleship/controller/GameController.html">View Javadoc</a></div><pre>
-<a class="jxr_linenumber" name="L1" href="#L1">1</a>   
-<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <strong class="jxr_keyword">package</strong> heaa.battleship.controller;
-<a class="jxr_linenumber" name="L3" href="#L3">3</a>   
-<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> heaa.battleship.model.AIPlayer;
-<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> heaa.battleship.model.HumanPlayer;
-<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> heaa.battleship.model.Position;
-<a class="jxr_linenumber" name="L7" href="#L7">7</a>   
-<a class="jxr_linenumber" name="L8" href="#L8">8</a>   
-<a class="jxr_linenumber" name="L9" href="#L9">9</a>   
-<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../heaa/battleship/controller/GameController.html">GameController</a> {
-<a class="jxr_linenumber" name="L11" href="#L11">11</a>      <strong class="jxr_keyword">private</strong> <a href="../../../heaa/battleship/model/HumanPlayer.html">HumanPlayer</a> human;
-<a class="jxr_linenumber" name="L12" href="#L12">12</a>      <strong class="jxr_keyword">private</strong> <a href="../../../heaa/battleship/model/AIPlayer.html">AIPlayer</a> computer;
-<a class="jxr_linenumber" name="L13" href="#L13">13</a>      
-<a class="jxr_linenumber" name="L14" href="#L14">14</a>      
-<a class="jxr_linenumber" name="L15" href="#L15">15</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> playTurn(<a href="../../../heaa/battleship/model/Position.html">Position</a> position) {
-<a class="jxr_linenumber" name="L16" href="#L16">16</a>          computer.getGrid().shootGrid(position);
-<a class="jxr_linenumber" name="L17" href="#L17">17</a>          
-<a class="jxr_linenumber" name="L18" href="#L18">18</a>      }
-<a class="jxr_linenumber" name="L19" href="#L19">19</a>      
-<a class="jxr_linenumber" name="L20" href="#L20">20</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> playAITurn() {
-<a class="jxr_linenumber" name="L21" href="#L21">21</a>          <em class="jxr_comment">// Do AI magic here or in the AI player model :)</em>
-<a class="jxr_linenumber" name="L22" href="#L22">22</a>          <em class="jxr_comment">// Which is like: </em>
-<a class="jxr_linenumber" name="L23" href="#L23">23</a>          <a href="../../../heaa/battleship/model/Position.html">Position</a> position = computer.determineWhereToShoot(human.getGrid());
-<a class="jxr_linenumber" name="L24" href="#L24">24</a>          human.getGrid().shootGrid(position);
-<a class="jxr_linenumber" name="L25" href="#L25">25</a>      }
-<a class="jxr_linenumber" name="L26" href="#L26">26</a>      
-<a class="jxr_linenumber" name="L27" href="#L27">27</a>      
-<a class="jxr_linenumber" name="L28" href="#L28">28</a>      
-<a class="jxr_linenumber" name="L29" href="#L29">29</a>  }
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">package</strong> heaa.battleship.controller;
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> heaa.battleship.model.AIPlayer;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> heaa.battleship.model.HumanPlayer;
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> heaa.battleship.model.Position;
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_javadoccomment"> * Luokka, jonka avulla hallinnoidaan pelaajia ja pelivuoroja.</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../heaa/battleship/controller/GameController.html">GameController</a> <strong class="jxr_keyword">extends</strong> <a href="../../../heaa/battleship/controller/Controller.html">Controller</a> {
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>      <strong class="jxr_keyword">private</strong> <a href="../../../heaa/battleship/model/HumanPlayer.html">HumanPlayer</a> human;
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>      <strong class="jxr_keyword">private</strong> <a href="../../../heaa/battleship/model/AIPlayer.html">AIPlayer</a> computer;
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_javadoccomment">     * Metodi huolehtii pelivuoron kulusta. Ensin ammutaan pelaajan klikkaamaan</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_javadoccomment">     * ruutuun, jonka jälkeen tarkastetaan, loppuiko peli. Jos ei loppunut, niin</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_javadoccomment">     * on tekoälyn vuoro, jonka jälkeen tarkastetaan uudelleen, loppuiko peli.</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_javadoccomment">     * Pelin loppuessa metodi sulkee ohjelman.</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_javadoccomment">     * @param position Sijainti, johon pelaaja haluaa ampua</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> playTurn(<a href="../../../heaa/battleship/model/Position.html">Position</a> position) {
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>          computer.getGrid().shootGrid(position);
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>          <strong class="jxr_keyword">if</strong> (gameEnded()) {
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>              shutGameOff();
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>          }
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>          playAITurn();
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>          <strong class="jxr_keyword">if</strong> (gameEnded()) {
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>              shutGameOff();
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>          }
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>      }
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> gameEnded() {
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>          <strong class="jxr_keyword">return</strong> !human.hasShips() || !computer.hasShips();
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>      }
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> shutGameOff() {
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>          System.exit(0);
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>      }
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  <em class="jxr_javadoccomment">     * Metodi, joka vastaa tekoälyn pelivuorosta. Ensin määritetään sijainti,</em>
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  <em class="jxr_javadoccomment">     * johon ammutaan vastustajan eli ihmispelaajan ruudukosta. Sitten tekoäly</em>
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  <em class="jxr_javadoccomment">     * ampuu kyseiseen sijaintiin.</em>
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> playAITurn() {
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>          <a href="../../../heaa/battleship/model/Position.html">Position</a> position = computer.determineWhereToShoot(human.getGrid());
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>          human.getGrid().shootGrid(position);
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>      }
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>  
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>      <strong class="jxr_keyword">public</strong> <a href="../../../heaa/battleship/model/HumanPlayer.html">HumanPlayer</a> getHuman() {
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>          <strong class="jxr_keyword">return</strong> human;
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>      }
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>  
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setHuman(<a href="../../../heaa/battleship/model/HumanPlayer.html">HumanPlayer</a> human) {
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>          <strong class="jxr_keyword">this</strong>.human = human;
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>      }
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>  
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>      <strong class="jxr_keyword">public</strong> <a href="../../../heaa/battleship/model/AIPlayer.html">AIPlayer</a> getComputer() {
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>          <strong class="jxr_keyword">return</strong> computer;
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>      }
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>  
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setComputer(<a href="../../../heaa/battleship/model/AIPlayer.html">AIPlayer</a> computer) {
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>          <strong class="jxr_keyword">this</strong>.computer = computer;
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>      }
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>  
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2017. All rights reserved.</div>

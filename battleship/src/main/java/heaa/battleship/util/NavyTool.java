@@ -6,6 +6,10 @@ import heaa.battleship.model.Position;
 import heaa.battleship.model.Ship;
 import java.util.List;
 
+/**
+ * 
+ * Luokka, jonka avulla voi hallinnoida laivastoa.
+ */
 
 public class NavyTool {
     
@@ -13,8 +17,8 @@ public class NavyTool {
         return new Navy();
     }
     
-    public static Navy addShiptoNavy(Navy navy, List<Position> desiredPositions) throws RuntimeException {
-        if (navy.canShipBeAdded(desiredPositions)) {
+    public static Navy addShiptoNavy(Navy navy, List<Position> desiredPositions, int gridSize) throws RuntimeException {
+        if (navy.canShipBeAdded(desiredPositions, gridSize)) {
             Ship ship = new Ship(desiredPositions.size());
             ship.setPositions(desiredPositions);
             navy.addShip(ship);

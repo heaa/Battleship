@@ -1,6 +1,9 @@
-
 package heaa.battleship.model;
 
+/**
+ *
+ * Luokka, joka mallintaa sijaintia peliruudulla.
+ */
 
 public class Position {
 
@@ -25,8 +28,21 @@ public class Position {
         return this.j;
     }
 
-    public boolean equals(Position other) {
-        return this.i == other.i && this.j == other.j;
+    @Override
+    public boolean equals(Object other) {
+        if (other instanceof Position) {
+            Position otherPos = (Position) other;
+            return this.i == otherPos.i && this.j == otherPos.j;
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 89 * hash + this.i;
+        hash = 89 * hash + this.j;
+        return hash;
     }
 
     @Override

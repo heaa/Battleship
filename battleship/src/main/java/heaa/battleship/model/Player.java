@@ -6,8 +6,8 @@
 package heaa.battleship.model;
 
 /**
- *
- * @author heaarnio
+ * 
+ * Abstrakti luokka, joka mallintaa pelaajaa.
  */
 public abstract class Player {
     

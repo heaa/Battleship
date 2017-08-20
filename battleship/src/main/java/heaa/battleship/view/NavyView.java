@@ -1,35 +1,44 @@
 package heaa.battleship.view;
 
+
+import heaa.battleship.controller.GameController;
+import heaa.battleship.model.GameSettings;
+import heaa.battleship.model.Player;
+import heaa.battleship.model.Position;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Label;
+import java.awt.event.ActionEvent;
+import java.util.List;
 import javax.swing.*;
-import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class NavyView implements Runnable {
+/**
+ * 
+ * Luokka, joka hallinnoi pelitilan näkymää.
+ */
 
-    private JFrame frame;
-
-    @Override
-    public void run() {
-        this.frame = new JFrame();
-        this.frame.setTitle("Battleship");
-        frame.setSize(1200, 600);
-        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        frame.setVisible(true);
-        frame.getContentPane().setBackground(Color.DARK_GRAY);
+public class NavyView extends JPanel {
+    private PositionView[][] humanGrid;
+    private PositionView[][] aiGrid;
+    private GameController gameController;
+    
+    
+    public NavyView() {
         buildWindow();
-
+        this.gameController = new GameController();
+        this.gameController.setComputer(GameSettings.getAiPlayer());
+        this.gameController.setHuman(GameSettings.getHumanPlayer());
     }
+    
 
     private void buildWindow() {
-        int gridSize = 10;
-        frame.setLayout(new FlowLayout());
-        frame.add(makeAPlayingArea("Computer", gridSize));
-        frame.add(makeAPlayingArea("Human", gridSize));
-        frame.add(buildLabels());
+        int gridSize = GameSettings.getGridSize();
+        this.setLayout(new FlowLayout());
+        this.add(makeAPlayingArea("Computer", gridSize));
+        this.add(makeAPlayingArea("Human", gridSize));
+        this.add(buildLabels());
     }
 
     private JPanel makeAPlayingArea(String playerName, int gridSize) {
@@ -37,22 +46,44 @@ public class NavyView implements Runnable {
         area.setVisible(true);
         area.setLayout(new BoxLayout(area, BoxLayout.Y_AXIS));
         area.add(new Label(playerName));
-        area.add(makeAGrid(gridSize));
+        area.add(makeAGrid(playerName, gridSize));
 
         return area;
     }
 
-    private JPanel makeAGrid(int gridSize) {
+    private JPanel makeAGrid(String playerName, int gridSize) {
+        if (playerName.equals("Computer")) {
+            this.aiGrid = new PositionView[gridSize][gridSize];
+        } 
+        if (playerName.equals("Human")) {
+            this.humanGrid = new PositionView[gridSize][gridSize];
+        }
         JPanel grid = new JPanel();
         grid.setLayout(new GridLayout(gridSize, gridSize));
         for (int i = 0; i < gridSize; i++) {
             for (int j = 0; j < gridSize; j++) {
                 PositionView positionView = new PositionView(i, j);
+                if (playerName.equals("Computer")) {
+                    this.aiGrid[i][j] = positionView;
+                    positionView.addActionListener((ActionEvent e) -> {
+                        this.gameController.playTurn(positionView.getPosition());
+                        updateView();
+                    });
+                } else {
+                    this.humanGrid[i][j] = positionView;
+                }
                 grid.add(positionView);
                 positionView.setVisible(true);
             }
         }
         grid.setVisible(true);
+        if (playerName.equals("Human")) {
+            GameSettings.getHumanPlayer().getGrid()
+                    .getNavy().getCombinedPositionsOfShips()
+                    .forEach(position -> {
+                        humanGrid[position.getI()][position.getJ()].setBackground(Color.gray);
+                    });
+        } 
         grid.setPreferredSize(new Dimension(500, 500));
         return grid;
     }
@@ -64,5 +95,28 @@ public class NavyView implements Runnable {
         labels.setVisible(true);
 
         return labels;
+    }
+    private void updateView() {
+        Player computer = this.gameController.getComputer();
+        Player human = this.gameController.getHuman();
+        
+        List<Position> computerDestroyedPositions = computer.getGrid().getDestroyedShipPositions();
+        List<Position> humanDestroyedPositions = human.getGrid().getDestroyedShipPositions();
+        
+        List<Position> computerMissedPositions = computer.getGrid().getMissedPositions();
+        List<Position> humanMissedPositions = human.getGrid().getMissedPositions();
+        
+        computerMissedPositions.forEach(position -> {
+           this.aiGrid[position.getI()][position.getJ()].setBackground(Color.white);
+        });
+        humanMissedPositions.forEach(position -> {
+           this.humanGrid[position.getI()][position.getJ()].setBackground(Color.white);
+        });
+        computerDestroyedPositions.forEach(position -> {
+           this.aiGrid[position.getI()][position.getJ()].setBackground(Color.red);
+        });        
+        humanDestroyedPositions.forEach(position -> {
+           this.humanGrid[position.getI()][position.getJ()].setBackground(Color.red);
+        });
     }
 }

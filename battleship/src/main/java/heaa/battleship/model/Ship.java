@@ -2,7 +2,10 @@
 package heaa.battleship.model;
 
 import java.util.List;
-
+/**
+ * 
+ * Laivaa mallintava luokka.
+ */
 
 public class Ship {
 

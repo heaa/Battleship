@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+/**
+ * 
+ * Luokka, jossa on apumetodeja laivojen asettamiseksi ruudukkoon.
+ */
+
 public class ShipBuilder {
 
     public static Stack<Integer> createStackOfShipLengths() {
@@ -20,7 +25,7 @@ public class ShipBuilder {
 
     public static List<Position> buildDesiredPositions(int lenght, boolean horizontal, Position startPosition) {
         ArrayList<Position> desiredPositions = new ArrayList<>();
-
+        
         for (int n = 0; n < lenght; n++) {
             if (horizontal) {
                 desiredPositions.add(new Position(startPosition.getI(), startPosition.getJ() + n));
@@ -28,6 +33,7 @@ public class ShipBuilder {
                 desiredPositions.add(new Position(startPosition.getI() + n, startPosition.getJ()));
             }
         }
+        System.out.println(desiredPositions);
         return desiredPositions;
     }
 

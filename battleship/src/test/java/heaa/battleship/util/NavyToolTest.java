@@ -34,7 +34,7 @@ public class NavyToolTest {
         List<Position> desiredPositions = new ArrayList();
         desiredPositions.add(new Position(1,2));
         desiredPositions.add(new Position(1,3));
-        navy = NavyTool.addShiptoNavy(navy, desiredPositions);
+        navy = NavyTool.addShiptoNavy(navy, desiredPositions, 10);
         int sizeAfterAdding = navy.getShips().size();
         int shipCountDifference = sizeAfterAdding - sizeAtFirst;
         assertEquals(1, shipCountDifference);
@@ -44,7 +44,7 @@ public class NavyToolTest {
     public void testAddShipToNavyFails() {
         List<Position> desiredPositions = new ArrayList<>();
         desiredPositions.add(new Position(6,1));
-        navy = NavyTool.addShiptoNavy(navy, desiredPositions);
+        navy = NavyTool.addShiptoNavy(navy, desiredPositions, 10);
     }
     
 }

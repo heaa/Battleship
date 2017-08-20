@@ -40,7 +40,7 @@ public class NavyTest {
         List<Position> wantToAddPositions = new ArrayList();
         wantToAddPositions.add(new Position(2,2));
         wantToAdd.setPositions(wantToAddPositions);
-        assertFalse(navy.canShipBeAdded(wantToAdd.getPositions()));
+        assertFalse(navy.canShipBeAdded(wantToAdd.getPositions(), 10));
         
         
     }
@@ -50,7 +50,7 @@ public class NavyTest {
         List<Position> wantToAddPositions = new ArrayList();
         wantToAddPositions.add(new Position(0,2));
         wantToAdd.setPositions(wantToAddPositions);
-        assertFalse(navy.canShipBeAdded(wantToAdd.getPositions()));
+        assertFalse(navy.canShipBeAdded(wantToAdd.getPositions(), 10));
     }
     
     @Test 
@@ -59,7 +59,7 @@ public class NavyTest {
         List<Position> wantToAddPositions = new ArrayList();
         wantToAddPositions.add(new Position(1,2));
         wantToAdd.setPositions(wantToAddPositions);
-        assertFalse(navy.canShipBeAdded(wantToAdd.getPositions()));
+        assertFalse(navy.canShipBeAdded(wantToAdd.getPositions(), 10));
     }
     
    @Test
@@ -68,7 +68,7 @@ public class NavyTest {
        List<Position> wantToAddPositions = new ArrayList();
        wantToAddPositions.add(new Position(1,4));
        wantToAdd.setPositions(wantToAddPositions);
-       assertFalse(navy.canShipBeAdded(wantToAdd.getPositions()));
+       assertFalse(navy.canShipBeAdded(wantToAdd.getPositions(), 10));
    }
    
    @Test
@@ -77,7 +77,7 @@ public class NavyTest {
        List<Position> wantToAddPositions = new ArrayList();
        wantToAddPositions.add(new Position(1,1));
        wantToAdd.setPositions(wantToAddPositions);
-       assertFalse(navy.canShipBeAdded(wantToAdd.getPositions()));
+       assertFalse(navy.canShipBeAdded(wantToAdd.getPositions(), 10));
    }
    @Test
    public void testShipCanBeAddedToTheCornerOfTheOtherOne() {
@@ -85,7 +85,7 @@ public class NavyTest {
        List<Position> wantToAddPositions = new ArrayList();
        wantToAddPositions.add(new Position(3,1));
        wantToAdd.setPositions(wantToAddPositions);
-       assertTrue(navy.canShipBeAdded(wantToAdd.getPositions()));
+       assertTrue(navy.canShipBeAdded(wantToAdd.getPositions(), 10));
    }
    @Test
    public void testShipCanBeAddedTwoRowsBelowTheOtherOne() {
@@ -93,17 +93,28 @@ public class NavyTest {
        List<Position> wantToAddPositions = new ArrayList();
        wantToAddPositions.add(new Position(4,2));
        wantToAdd.setPositions(wantToAddPositions);
-       assertTrue(navy.canShipBeAdded(wantToAdd.getPositions()));
+       assertTrue(navy.canShipBeAdded(wantToAdd.getPositions(), 10));
+   }
+   
+   @Test
+   public void shipCannotBeAddedOutOfGameAreaLimits() {
+       Grid grid = new Grid(this.navy);
+       grid.setGridSize(20);
+       List<Position> desiredPositions = new ArrayList();
+       desiredPositions.add(new Position(19,19));
+       desiredPositions.add(new Position(19,20));
+       desiredPositions.add(new Position(19,21));
+       assertFalse(navy.canShipBeAdded(desiredPositions, grid.getSize()));
    }
    
    @Test
    public void testShipCanBeAddedWithEmtpyPositionList() {
-       assertTrue(navy.canShipBeAdded(new ArrayList<>()));
+       assertTrue(navy.canShipBeAdded(new ArrayList<>(), 10));
    }
    
    @Test(expected = Exception.class)
    public void testShipCanBeAddedWithNullPositionList() {
-       navy.canShipBeAdded(null);
+       navy.canShipBeAdded(null, 10);
    }
    @Test
    public void testShipDamage() {

@@ -1,6 +1,7 @@
 
 package heaa.battleship.controller;
 
+import heaa.battleship.model.GameSettings;
 import heaa.battleship.model.Player;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -16,7 +17,7 @@ public class GameInitializerTest {
     @Before
     public void setUp() {
         this.initializer = new GameInitializerController();
-        
+        GameSettings.setGridSize(10);
     }
 
     @Test
