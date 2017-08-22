@@ -81,7 +81,7 @@ public class NavyView extends JPanel {
             GameSettings.getHumanPlayer().getGrid()
                     .getNavy().getCombinedPositionsOfShips()
                     .forEach(position -> {
-                        humanGrid[position.getI()][position.getJ()].setBackground(Color.gray);
+                        humanGrid[position.getI()][position.getJ()].setBackground(Color.BLACK);
                     });
         } 
         grid.setPreferredSize(new Dimension(500, 500));

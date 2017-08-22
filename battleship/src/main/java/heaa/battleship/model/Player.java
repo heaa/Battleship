@@ -13,6 +13,9 @@ public abstract class Player {
     
     protected Grid grid;
     
+    /**
+     * Konstruktori luo uuden pelaajaa mallintavan olion.
+     */
     public Player() {
     }
     
@@ -23,7 +26,10 @@ public abstract class Player {
     public Grid getGrid() {
         return grid;
     }
-    
+    /**
+     * Metodi palauttaa tiedon, onko pelaajalla laivoja vaiko ei.
+     * @return Boolean true, jos pelaajalla on laivoja ja false, jos ei ole.
+     */
     public boolean hasShips() {
         return !(grid.getNavy().getShips().isEmpty());
     }

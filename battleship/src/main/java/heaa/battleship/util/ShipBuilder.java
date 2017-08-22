@@ -12,6 +12,10 @@ import java.util.Stack;
 
 public class ShipBuilder {
 
+    /**
+     * Metodi, joka luo pinon yhden laivaston laivojen pituuksista.
+     * @return Pino laivojen pituuksista
+     */
     public static Stack<Integer> createStackOfShipLengths() {
         Stack<Integer> lengthStack = new Stack<>();
         lengthStack.add(5);
@@ -23,6 +27,17 @@ public class ShipBuilder {
         return lengthStack;
     }
 
+    /**
+     * Metodi, joka palauttaa listan toivotuista sijainneista ruudukossa. Metodi ottaa
+     * parametreina toivotun laivan pituuden, tiedon laivan vaaka- tai pystysuuntaisesta
+     * asennosta ja ruudusta, josta laivan toivotaan alkavan. 
+     * 
+     * @param lenght Halutun laivan pituus
+     * @param horizontal Boolean true, jos laiva halutaan asettaa vaakasuuntaisesti ja
+     * false, jos pystysuuntaisesti.
+     * @param startPosition Sijainti, josta laivan toivotaan alkavan.
+     * @return Lista toivotuista sijainneista, joihin laiva halutaan asettaa
+     */
     public static List<Position> buildDesiredPositions(int lenght, boolean horizontal, Position startPosition) {
         ArrayList<Position> desiredPositions = new ArrayList<>();
         

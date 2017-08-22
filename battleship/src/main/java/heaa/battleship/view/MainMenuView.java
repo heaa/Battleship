@@ -178,7 +178,7 @@ public class MainMenuView extends JPanel {
         Navy navy = playerGrid.getNavy();
         List<Position> shipPositions = navy.getCombinedPositionsOfShips();
         shipPositions.forEach(position -> {
-           grid[position.getI()][position.getJ()].setBackground(Color.gray);
+           grid[position.getI()][position.getJ()].setBackground(Color.BLACK);
         });
     }
     

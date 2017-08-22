@@ -73,7 +73,15 @@ public class Navy {
     private void removeShipFromShipList(Ship ship) {
         ships.remove(ship);
     }
-
+    /**
+     * Metodi palauttaa tiedon, voiko laivan lisätä toivottuun paikkaan ruudukossa.
+     * Metodi ottaa parametrina listan toivotun laivan sijainneista ja tarkistaa,
+     * ettei listan mukaisissa ruuduissa tai niiden viereisissä ruuduissa ole laivoja.
+     * @param desiredLocations Lista asetettavan laivan sijainneista
+     * @param gridSize Pelialueen ruudukon koko
+     * @return Boolean-muuttuja true, jos laivan voi lisätä pelin sääntöjen mukaisesti
+     * toivottuun kohtaan ja false, jos ei voi
+     */
     public boolean canShipBeAdded(List<Position> desiredLocations, int gridSize) {
         List<Position> locationsWhereCannotBeShips = new ArrayList<>(desiredLocations);
         desiredLocations.forEach(l -> {

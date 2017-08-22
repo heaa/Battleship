@@ -18,5 +18,6 @@ Päivä | Tunnit | Kuvaus
 18.08.2017 | 3.5 h | Käyttöliittymän näkymien ohjelmointia
 19.08.2017 | 4 h | Käyttöliittymän ohjelmointia
 20.08.2017 | 7 h | Käyttöliittymän ohjelmointia, javadocin kirjoittaminen
+21.08.2017 | 1 h | Javadocin kirjoittamista
 
 

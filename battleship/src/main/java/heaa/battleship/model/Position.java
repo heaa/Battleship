@@ -10,6 +10,11 @@ public class Position {
     private int i;
     private int j;
 
+    /**
+     * Konstruktori luo uuden sijaintiolion ja asettaa sille i- ja j-arvot.
+     * @param i Integer-arvo, joka mallintaa vaakasuuntaista sijaintia.
+     * @param j Integer-arvo, joka mallintaa pystysuuntaista sijaintia.
+     */
     public Position(int i, int j) {
         this.i = i;
         this.j = j;
