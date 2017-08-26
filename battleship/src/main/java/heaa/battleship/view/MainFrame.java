@@ -6,29 +6,38 @@
 package heaa.battleship.view;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
  * Luokka, joka toimii pelinäkymien hallinnoijana.
  */
-public class MainFrame implements Runnable {
+public class MainFrame {
 
     private static JFrame mainWindow;
-    private static MainMenuView mainMenuView;
-    private static NavyView navyView;
+    private static JPanel panelInView;
+    private static MainFrame mainFrame;
     
-    @Override
-    public void run() {
+    private MainFrame() {
         mainWindow = new JFrame();
         mainWindow.setSize(1200, 600);
         mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainMenuView = new MainMenuView();
-        mainWindow.add(mainMenuView);
         mainWindow.setVisible(true);
     }
-    public static void startBattle() {
-        navyView = new NavyView();
-        mainMenuView.setVisible(false);
-        mainWindow.add(navyView);
+    
+    public static MainFrame getInstance() {
+        if(mainFrame == null) {
+            mainFrame = new MainFrame();
+        }
+        return mainFrame;
+    }
+    
+    public void setPanelInView(JPanel panel) {
+        if(panelInView != null) {
+            panelInView.setVisible(false);
+        }
+        panelInView = panel;
+        panelInView.setVisible(true);
+        mainWindow.add(panelInView);
     }
 }

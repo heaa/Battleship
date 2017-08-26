@@ -17,7 +17,7 @@ public class GameInitializerTest {
     @Before
     public void setUp() {
         this.initializer = new GameInitializerController();
-        GameSettings.setGridSize(10);
+        GameSettings.getInstance().setGridSize(10);
     }
 
     @Test

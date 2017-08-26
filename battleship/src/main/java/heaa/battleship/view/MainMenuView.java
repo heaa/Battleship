@@ -1,24 +1,7 @@
 package heaa.battleship.view;
 
-import heaa.battleship.controller.GameInitializerController;
-import heaa.battleship.model.AIPlayer;
-import heaa.battleship.model.GameSettings;
-import heaa.battleship.model.Grid;
-import heaa.battleship.model.HumanPlayer;
-import heaa.battleship.model.Navy;
-import heaa.battleship.model.Position;
-import heaa.battleship.util.ShipBuilder;
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.util.List;
-import java.util.Stack;
-import javax.swing.ButtonGroup;
 import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
@@ -27,48 +10,38 @@ import javax.swing.JRadioButton;
  * Luokka, joka hallinnoi päävalikkoa ja laivojen asetusta.
  */
 
-public class MainMenuView extends JPanel {
+public class MainMenuView {
 
-    private JButton start;
-    private JButton exit;
-    private JPanel gridWrapper;
-    private PositionView[][] grid;
-    private ButtonGroup radiobuttonGroup, alignmentSelection;
-    private JRadioButton ten, twenty, thirty, forty;
-    private final GameInitializerController gameInitializerController;
-    private Stack<Integer> ships;
-    private JLabel shipLengthDisplayer;
-
+    private JPanel mainPanel;
+    
     public MainMenuView() {
-        this.setUpView();
-        this.CreateRadioButtons();
-        this.setUpListenersForStartAndExit();
-        this.addRadioButtonstoGroup();
-        this.addRadioButtonstoThisView();
-        this.gameInitializerController = new GameInitializerController();
+        this.mainPanel = new JPanel();
+        setUpView();
     }
 
     private void setUpView() {
-        this.setLayout(new FlowLayout());
-        this.start = new JButton("Start");
-        this.exit = new JButton("Exit");
-        super.add(start);
-        super.add(exit);
-        super.setVisible(true);
+        mainPanel.setLayout(new FlowLayout());
     }
-
-    private void setUpListenersForStartAndExit() {
-        this.start.addActionListener((ActionEvent e) -> {
-            Integer gridSize = new Integer(radiobuttonGroup.getSelection().getActionCommand());
-            GameSettings.setGridSize(gridSize);
-            gameInitializerController.startGame();
-            this.showSetShipsView();
-        });
-        this.exit.addActionListener((ActionEvent e) -> {
-            System.exit(0);
-        });
+    
+    public void setStartButton(JButton startButton) {
+        mainPanel.add(startButton);
     }
-
+    
+    public void setExitButton(JButton exitButton) {
+        mainPanel.add(exitButton);
+    }
+    
+    public void setGridSizeRadioButtons(JRadioButton ten, JRadioButton twenty, JRadioButton thirty, JRadioButton forty) {
+        mainPanel.add(ten);
+        mainPanel.add(twenty);
+        mainPanel.add(thirty);
+        mainPanel.add(forty);
+    }
+    
+    public JPanel getMainPanel() {
+        return this.mainPanel;
+    }
+/*
     private void showSetShipsView() {
         this.ships = ShipBuilder.createStackOfShipLengths();
         this.hideButtons();
@@ -88,11 +61,11 @@ public class MainMenuView extends JPanel {
         this.add(horizontal);
         drawGrid(settings.getGridSize());
     }
-    
+    */
     private String buildShipLengthString(Integer length) {
         return "Your next ship is " + length + " squares long.";
     }
-
+/*
     private void hideButtons() {
         this.start.setVisible(false);
         this.exit.setVisible(false);
@@ -101,8 +74,8 @@ public class MainMenuView extends JPanel {
         this.thirty.setVisible(false);
         this.forty.setVisible(false);
     }
-
-    private void CreateRadioButtons() {
+*/
+/*    private void CreateRadioButtons() {
 
         this.ten = new JRadioButton("10");
         ten.setSelected(true);
@@ -118,22 +91,22 @@ public class MainMenuView extends JPanel {
         forty.setActionCommand("40");
 
     }
-
-    private void addRadioButtonstoGroup() {
-        this.radiobuttonGroup = new ButtonGroup();
-        this.radiobuttonGroup.add(ten);
-        this.radiobuttonGroup.add(twenty);
-        this.radiobuttonGroup.add(thirty);
-        this.radiobuttonGroup.add(forty);
+*/
+ /*   private void addRadioButtonstoGroup() {
+        this.gridSizeRadioButtons = new ButtonGroup();
+        this.gridSizeRadioButtons.add(ten);
+        this.gridSizeRadioButtons.add(twenty);
+        this.gridSizeRadioButtons.add(thirty);
+        this.gridSizeRadioButtons.add(forty);
     }
-
-    private void addRadioButtonstoThisView() {
+*/
+  /*  private void addRadioButtonstoThisView() {
         this.add(ten);
         this.add(twenty);
         this.add(thirty);
         this.add(forty);
-    }
-    private void drawGrid(int gridSize) {
+    }*/
+    /*private void drawGrid(int gridSize) {
         this.grid = new PositionView[gridSize][gridSize];
         this.gridWrapper = new JPanel();
         gridWrapper.setLayout(new GridLayout(gridSize, gridSize));
@@ -151,9 +124,9 @@ public class MainMenuView extends JPanel {
         }
         gridWrapper.setPreferredSize(new Dimension(500, 500));
         this.add(gridWrapper);
-    }
+    }*/
     
-    private void setShipToGrid(Position position, boolean horizontal) {
+   /* private void setShipToGrid(Position position, boolean horizontal) {
         try {
             Integer length = ships.peek();
             this.gameInitializerController.addShipToGrid(
@@ -165,9 +138,9 @@ public class MainMenuView extends JPanel {
         } catch(RuntimeException e) {
             JOptionPane.showMessageDialog(this, "You can't set ship here. Please choose other location.");
         }
-    }
+    }*/
     
-    private void updateView() {
+   /* private void updateView() {
         if(this.ships.size() > 0) {
             this.shipLengthDisplayer.setText(this.buildShipLengthString(this.ships.peek()));
         } else {
@@ -180,15 +153,7 @@ public class MainMenuView extends JPanel {
         shipPositions.forEach(position -> {
            grid[position.getI()][position.getJ()].setBackground(Color.BLACK);
         });
-    }
+    }*/
     
-    private void showStartGameButton() {
-        JButton startGame = new JButton("To battle!");
-        startGame.addActionListener((ActionEvent e) -> {
-            GameSettings.setHumanPlayer((HumanPlayer) this.gameInitializerController.getHumanPlayer());
-            GameSettings.setAiPlayer((AIPlayer) this.gameInitializerController.getAIPlayer());
-            MainFrame.startBattle();
-        });
-        this.add(startGame);
-    }
+   
 }

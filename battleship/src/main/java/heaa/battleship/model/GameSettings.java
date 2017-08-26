@@ -5,33 +5,41 @@ package heaa.battleship.model;
  */
 
 public class GameSettings {
-    private static int gridSize;
-    private static HumanPlayer humanPlayer;
-    private static AIPlayer aiPlayer;
+    private int gridSize;
+    private HumanPlayer humanPlayer;
+    private AIPlayer aiPlayer;
+    private static GameSettings instance;
     
     private GameSettings() {}
     
-    public static void setGridSize(int size) {
-        gridSize = size;
+    public static GameSettings getInstance() {
+        if(instance == null) {
+            instance = new GameSettings();
+        }
+        return instance;
     }
-    public static int getGridSize() {
+    
+    public void setGridSize(int size) {
+        this.gridSize = size;
+    }
+    public int getGridSize() {
         return gridSize;
     }
 
-    public static HumanPlayer getHumanPlayer() {
+    public HumanPlayer getHumanPlayer() {
         return humanPlayer;
     }
 
-    public static void setHumanPlayer(HumanPlayer humanPlayer) {
-        GameSettings.humanPlayer = humanPlayer;
+    public void setHumanPlayer(HumanPlayer humanPlayer) {
+        this.humanPlayer = humanPlayer;
     }
 
-    public static AIPlayer getAiPlayer() {
+    public AIPlayer getAiPlayer() {
         return aiPlayer;
     }
 
-    public static void setAiPlayer(AIPlayer aiPlayer) {
-        GameSettings.aiPlayer = aiPlayer;
+    public void setAiPlayer(AIPlayer aiPlayer) {
+        this.aiPlayer = aiPlayer;
     }
     
     

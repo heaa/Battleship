@@ -8,7 +8,7 @@ import heaa.battleship.model.Position;
  *
  * Luokka, jonka avulla hallinnoidaan pelaajia ja pelivuoroja.
  */
-public class GameController extends Controller {
+public class GameController {
 
     private HumanPlayer human;
     private AIPlayer computer;

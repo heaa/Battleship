@@ -3,6 +3,7 @@ package heaa.battleship.controller;
 import heaa.battleship.util.NavyTool;
 import heaa.battleship.util.ShipBuilder;
 import heaa.battleship.model.AIPlayer;
+import heaa.battleship.model.GameSettings;
 import heaa.battleship.model.Grid;
 import heaa.battleship.model.HumanPlayer;
 import heaa.battleship.model.Player;
@@ -15,7 +16,7 @@ import java.util.Stack;
  *
  * Pelin alkua hallinnoiva luokka.
  */
-public class GameInitializerController extends Controller {
+public class GameInitializerController {
 
     private AIPlayer computer;
     private HumanPlayer human;
@@ -31,8 +32,8 @@ public class GameInitializerController extends Controller {
         this.human = new HumanPlayer();
         Grid humanGrid = new Grid(NavyTool.createNavy());
         Grid aiGrid = new Grid(NavyTool.createNavy());
-        humanGrid.setGridSize(gameSettings.getGridSize());
-        aiGrid.setGridSize(gameSettings.getGridSize());
+        humanGrid.setGridSize(GameSettings.getInstance().getGridSize());
+        aiGrid.setGridSize(GameSettings.getInstance().getGridSize());
         this.human.setGrid(humanGrid);
         this.computer.setGrid(aiGrid);
         this.setAIShipsToGrid(this.computer, ShipBuilder.createStackOfShipLengths());
