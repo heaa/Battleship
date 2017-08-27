@@ -1,6 +1,8 @@
 
 package heaa.battleship.controller;
 
+import heaa.battleship.exception.AlreadyShotException;
+import heaa.battleship.exception.GameEndedException;
 import heaa.battleship.model.AIPlayer;
 import heaa.battleship.model.GameSettings;
 import heaa.battleship.model.Grid;
@@ -59,5 +61,17 @@ public class GameControllerTest {
         this.controller.playTurn(shootingPosition);
         assertEquals(1, this.computer.getGrid().getNavy().getShips().size());
     }
-    
+    @Test(expected = GameEndedException.class)
+    public void gameEndsTest() {
+        Position shootingPosition1 = new Position(1,1);
+        Position shootingPosition2 = new Position(2,2);
+        this.controller.playTurn(shootingPosition1);
+        this.controller.playTurn(shootingPosition2);
+    }
+    @Test(expected = AlreadyShotException.class) 
+    public void alreadyShotTest() {
+        Position shootingPosition1 = new Position(3,3);
+        this.controller.playTurn(shootingPosition1);
+        this.controller.playTurn(shootingPosition1);
+    }
 }

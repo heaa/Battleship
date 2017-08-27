@@ -10,4 +10,11 @@
     <suppress files="MainMenuView.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="NavyView.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="PositionView.java" checks="[a-zA-Z0-9]*"/>
+<suppress files="GameEndView.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="GameEndViewController.java" checks="[a-zA-Z0-9]*"/>
+<suppress files="MainMenuViewController.java" checks="[a-zA-Z0-9]*"/>
+<suppress files="NavyViewController.java" checks="[a-zA-Z0-9]*"/>
+<suppress files="ShipDeploymentView.java" checks="[a-zA-Z0-9]*"/>
+<suppress files="ShipDeploymentViewController.java" checks="[a-zA-Z0-9]*"/>
+<suppress files="Main.java" checks="[a-zA-Z0-9]*"/>
 </suppressions>

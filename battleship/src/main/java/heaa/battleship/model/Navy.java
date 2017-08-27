@@ -7,7 +7,6 @@ import java.util.List;
  *
  * Pelaajan laivastoa mallintava luokka.
  */
-
 public class Navy {
 
     private List<Ship> ships;
@@ -39,6 +38,7 @@ public class Navy {
 
     /**
      * Metodi lisää laivan laivastoon laivalistaan.
+     *
      * @param ship Lisättävä laiva.
      */
     public void addShip(Ship ship) {
@@ -46,12 +46,15 @@ public class Navy {
     }
 
     /**
-     * Metodi tarkistaa tietystä parametrina annetusta sijainnista, onko yksikään
-     * laivaston laiva kyseisessä sijainnissa. Jos on, kyseiseltä laivalta poistetaan
-     * sijainti, johon tulee vahinkoa pelissa. Jos koko laiva tuhoutuu, se poistetaan
-     * laivastosta.
-     * @param position Sijainti, jota halutaan verrata laivaston laivojen sijainteihin
-     * @return Palauttaa arvon true, jos laivastoon tuli vahinkoa ja false, jos mihinkään ei osuttu
+     * Metodi tarkistaa tietystä parametrina annetusta sijainnista, onko
+     * yksikään laivaston laiva kyseisessä sijainnissa. Jos on, kyseiseltä
+     * laivalta poistetaan sijainti, johon tulee vahinkoa pelissa. Jos koko
+     * laiva tuhoutuu, se poistetaan laivastosta.
+     *
+     * @param position Sijainti, jota halutaan verrata laivaston laivojen
+     * sijainteihin
+     * @return Palauttaa arvon true, jos laivastoon tuli vahinkoa ja false, jos
+     * mihinkään ei osuttu
      */
     public boolean damage(Position position) {
         for (Ship ship : ships) {
@@ -73,14 +76,17 @@ public class Navy {
     private void removeShipFromShipList(Ship ship) {
         ships.remove(ship);
     }
+
     /**
-     * Metodi palauttaa tiedon, voiko laivan lisätä toivottuun paikkaan ruudukossa.
-     * Metodi ottaa parametrina listan toivotun laivan sijainneista ja tarkistaa,
-     * ettei listan mukaisissa ruuduissa tai niiden viereisissä ruuduissa ole laivoja.
+     * Metodi palauttaa tiedon, voiko laivan lisätä toivottuun paikkaan
+     * ruudukossa. Metodi ottaa parametrina listan toivotun laivan sijainneista
+     * ja tarkistaa, ettei listan mukaisissa ruuduissa tai niiden viereisissä
+     * ruuduissa ole laivoja.
+     *
      * @param desiredLocations Lista asetettavan laivan sijainneista
      * @param gridSize Pelialueen ruudukon koko
-     * @return Boolean-muuttuja true, jos laivan voi lisätä pelin sääntöjen mukaisesti
-     * toivottuun kohtaan ja false, jos ei voi
+     * @return Boolean-muuttuja true, jos laivan voi lisätä pelin sääntöjen
+     * mukaisesti toivottuun kohtaan ja false, jos ei voi
      */
     public boolean canShipBeAdded(List<Position> desiredLocations, int gridSize) {
         List<Position> locationsWhereCannotBeShips = new ArrayList<>(desiredLocations);

@@ -1,20 +1,27 @@
-package heaa.battleship.controller;
+package heaa.battleship.view;
 
+import heaa.battleship.controller.GameController;
+import heaa.battleship.exception.AlreadyShotException;
+import heaa.battleship.exception.GameEndedException;
 import heaa.battleship.model.GameSettings;
 import heaa.battleship.model.Grid;
 import heaa.battleship.model.Player;
 import heaa.battleship.model.Position;
-import heaa.battleship.view.MainFrame;
-import heaa.battleship.view.NavyView;
-import heaa.battleship.view.PositionView;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.util.List;
 import javax.swing.BoxLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
+/**
+ * Luokka, joka kontrolloi pelitilan mallintamista.
+ *
+ * @author heaarnio
+ */
 public class NavyViewController implements Runnable {
 
     private NavyView navyView;
@@ -58,8 +65,14 @@ public class NavyViewController implements Runnable {
             for (int j = 0; j < gridSize; j++) {
                 PositionView positionView = new PositionView(i, j);
                 if (playerName.equals("Computer")) {
-                    positionView.addActionListener((ActionEvent e) -> {
-                        gameController.playTurn(positionView.getPosition());
+                    positionView.addActionListener((ActionEvent a) -> {
+                        try {
+                            gameController.playTurn(positionView.getPosition());
+                        } catch (AlreadyShotException e) {
+                            displayErrorMessage(e.getMessage());
+                        } catch (GameEndedException e) {
+                            SwingUtilities.invokeLater(new GameEndViewController());
+                        }
                         updateSituation();
                     });
                 }
@@ -68,7 +81,7 @@ public class NavyViewController implements Runnable {
                 gridPointers[i][j] = positionView;
             }
         }
-        if(playerName.equals("Computer")) {
+        if (playerName.equals("Computer")) {
             navyView.setAiGridPointers(gridPointers);
         } else {
             navyView.setHumanGridPointers(gridPointers);
@@ -86,13 +99,17 @@ public class NavyViewController implements Runnable {
     private void updateSituation() {
         Player computer = this.gameController.getComputer();
         Player human = this.gameController.getHuman();
-        
+
         List<Position> computerDestroyedPositions = computer.getGrid().getDestroyedShipPositions();
         List<Position> humanDestroyedPositions = human.getGrid().getDestroyedShipPositions();
-        
+
         List<Position> computerMissedPositions = computer.getGrid().getMissedPositions();
         List<Position> humanMissedPositions = human.getGrid().getMissedPositions();
-        
+
         this.navyView.updateView(computerMissedPositions, humanMissedPositions, computerDestroyedPositions, humanDestroyedPositions);
+    }
+
+    private void displayErrorMessage(String message) {
+        JOptionPane.showMessageDialog(this.navyView.getMainPanel(), message);
     }
 }

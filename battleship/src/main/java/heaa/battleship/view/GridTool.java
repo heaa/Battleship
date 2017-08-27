@@ -6,11 +6,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 
 /**
- * 
+ *
  * Luokka, jonka avulla voi piirtää peliin ruudukon.
  */
 public class GridTool {
-    
+
     public static JPanel makeGrid(int gridSize, ActionListener actionListener) {
         JPanel grid = new JPanel();
         grid.setLayout(new GridLayout(gridSize, gridSize));
@@ -25,5 +25,5 @@ public class GridTool {
         grid.setPreferredSize(new Dimension(500, 500));
         return grid;
     }
-    
+
 }

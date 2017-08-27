@@ -7,7 +7,6 @@ import java.util.Random;
  *
  * Tekoälypelaajaa mallintava luokka.
  */
-
 public class AIPlayer extends Player {
 
     private Random random;
@@ -73,8 +72,11 @@ public class AIPlayer extends Player {
     }
 
     /**
-     * Metodi antaa tekoälylle boolean-arvon, jotta on mahdollista päättää laitetaanko laiva pysty- vai vaakasuuntaisesti ruudukkoon.
-     * @return Boolean arvo true, jos satunnainen luku on pienempi tai yhtä suuri kuin 0.49 ja false, jos yli 0.49.
+     * Metodi antaa tekoälylle boolean-arvon, jotta on mahdollista päättää
+     * laitetaanko laiva pysty- vai vaakasuuntaisesti ruudukkoon.
+     *
+     * @return Boolean arvo true, jos satunnainen luku on pienempi tai yhtä
+     * suuri kuin 0.49 ja false, jos yli 0.49.
      */
     public boolean selectAlignment() {
         return this.random.nextDouble() <= 0.49;

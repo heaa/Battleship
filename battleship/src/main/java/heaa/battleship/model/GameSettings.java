@@ -1,27 +1,35 @@
 package heaa.battleship.model;
+
 /**
- * 
+ *
  * Pelin asetukset sisältävä staattinen luokka.
  */
 
 public class GameSettings {
+
     private int gridSize;
     private HumanPlayer humanPlayer;
     private AIPlayer aiPlayer;
     private static GameSettings instance;
-    
-    private GameSettings() {}
-    
+
+    private GameSettings() {
+    }
+
+    /**
+     * Konstruktori, joka luo uuden GameSettings-olion, jos sellaista ei jo ole valmiiksi.
+     * @return gameSettings
+     */
     public static GameSettings getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new GameSettings();
         }
         return instance;
     }
-    
+
     public void setGridSize(int size) {
         this.gridSize = size;
     }
+
     public int getGridSize() {
         return gridSize;
     }
@@ -41,6 +49,5 @@ public class GameSettings {
     public void setAiPlayer(AIPlayer aiPlayer) {
         this.aiPlayer = aiPlayer;
     }
-    
-    
+
 }

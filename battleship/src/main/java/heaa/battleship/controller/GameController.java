@@ -1,5 +1,7 @@
 package heaa.battleship.controller;
 
+import heaa.battleship.exception.AlreadyShotException;
+import heaa.battleship.exception.GameEndedException;
 import heaa.battleship.model.AIPlayer;
 import heaa.battleship.model.HumanPlayer;
 import heaa.battleship.model.Position;
@@ -22,16 +24,24 @@ public class GameController {
      * @param position Sijainti, johon pelaaja haluaa ampua
      */
     public void playTurn(Position position) {
-        computer.getGrid().shootGrid(position);
-        if (gameEnded()) {
-            shutGameOff();
-        }
 
+        shoot(position);
+
+        if (gameEnded()) {
+            throw new GameEndedException();
+        }
         playAITurn();
         if (gameEnded()) {
-            shutGameOff();
+            throw new GameEndedException();
         }
+    }
 
+    private void shoot(Position position) throws AlreadyShotException {
+        if (!computer.getGrid().isAlreadyShot(position)) {
+            computer.getGrid().shootGrid(position);
+        } else {
+            throw new AlreadyShotException();
+        }
     }
 
     private boolean gameEnded() {

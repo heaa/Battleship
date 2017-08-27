@@ -4,7 +4,6 @@ package heaa.battleship.model;
  *
  * Luokka, joka mallintaa sijaintia peliruudulla.
  */
-
 public class Position {
 
     private int i;
@@ -12,6 +11,7 @@ public class Position {
 
     /**
      * Konstruktori luo uuden sijaintiolion ja asettaa sille i- ja j-arvot.
+     *
      * @param i Integer-arvo, joka mallintaa vaakasuuntaista sijaintia.
      * @param j Integer-arvo, joka mallintaa pystysuuntaista sijaintia.
      */
@@ -20,6 +20,11 @@ public class Position {
         this.j = j;
     }
 
+    /**
+     * Metodi, joka asettaa sijaintioliolle arvot.
+     * @param i Kokonaisluku, joka esittää rivin indeksiä
+     * @param j Kokonaisluku, joka esittää sarakkeen indeksiä
+     */
     public void setPosition(int i, int j) {
         this.i = i;
         this.j = j;

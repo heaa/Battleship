@@ -6,7 +6,6 @@ import java.util.List;
  *
  * Laivaa mallintava luokka.
  */
-
 public class Ship {
 
     private List<Position> positions;
@@ -32,20 +31,18 @@ public class Ship {
 
     /**
      * Metodi palauttaa tiedon, onko laivalla parametrina annettu sijainti.
+     *
      * @param other Sijainti, johon laivan sijainteja halutaan verrata
-     * @return Boolean-arvo true, jos laivalla on parametria vastaava sijainti ja 
-     * false, jos laivalla ei ole sijaintia.
+     * @return Boolean-arvo true, jos laivalla on parametria vastaava sijainti
+     * ja false, jos laivalla ei ole sijaintia.
      */
     public boolean hasPosition(Position other) {
-        for (Position position : positions) {
-            if (position.equals(other)) {
-                return true;
-            }
-        }
-        return false;
+        return positions.contains(other);
     }
+
     /**
-     * Metodi poistaa laivalta parametrina annetun sijainnin. 
+     * Metodi poistaa laivalta parametrina annetun sijainnin.
+     *
      * @param other Sijainti, joka laivalta halutaan poistaa
      */
     public void deletePosition(Position other) {

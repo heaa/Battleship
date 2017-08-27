@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2017</copyright>
     <item>
-      <title>File: 19,
+      <title>File: 26,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -46,21 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#heaa.battleship.view.PositionView.java">heaa/battleship/view/PositionView.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#heaa.battleship.controller.Controller.java">heaa/battleship/controller/Controller.java</a>
+                  <a href="${project.url}/checkstyle.html#heaa.battleship.exception.GameEndedException.java">heaa/battleship/exception/GameEndedException.java</a>
                 </td>
                 <td>
                   0
@@ -102,21 +88,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#heaa.battleship.model.Player.java">heaa/battleship/model/Player.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#heaa.battleship.model.Grid.java">heaa/battleship/model/Grid.java</a>
+                  <a href="${project.url}/checkstyle.html#heaa.battleship.view.GameEndViewController.java">heaa/battleship/view/GameEndViewController.java</a>
                 </td>
                 <td>
                   0
@@ -144,7 +116,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#heaa.battleship.Main.java">heaa/battleship/Main.java</a>
+                  <a href="${project.url}/checkstyle.html#heaa.battleship.view.NavyViewController.java">heaa/battleship/view/NavyViewController.java</a>
                 </td>
                 <td>
                   0
@@ -158,7 +130,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#heaa.battleship.model.GameSettings.java">heaa/battleship/model/GameSettings.java</a>
+                  <a href="${project.url}/checkstyle.html#heaa.battleship.view.GameEndView.java">heaa/battleship/view/GameEndView.java</a>
                 </td>
                 <td>
                   0
@@ -214,7 +186,147 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#heaa.battleship.view.ShipDeploymentView.java">heaa/battleship/view/ShipDeploymentView.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#heaa.battleship.view.NavyView.java">heaa/battleship/view/NavyView.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#heaa.battleship.view.MainMenuView.java">heaa/battleship/view/MainMenuView.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#heaa.battleship.view.ShipDeploymentViewController.java">heaa/battleship/view/ShipDeploymentViewController.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#heaa.battleship.view.PositionView.java">heaa/battleship/view/PositionView.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#heaa.battleship.exception.AlreadyShotException.java">heaa/battleship/exception/AlreadyShotException.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#heaa.battleship.model.Player.java">heaa/battleship/model/Player.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#heaa.battleship.model.Grid.java">heaa/battleship/model/Grid.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#heaa.battleship.Main.java">heaa/battleship/Main.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#heaa.battleship.model.GameSettings.java">heaa/battleship/model/GameSettings.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#heaa.battleship.view.MainMenuViewController.java">heaa/battleship/view/MainMenuViewController.java</a>
                 </td>
                 <td>
                   0
@@ -271,20 +383,6 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#heaa.battleship.model.HumanPlayer.java">heaa/battleship/model/HumanPlayer.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#heaa.battleship.view.MainMenuView.java">heaa/battleship/view/MainMenuView.java</a>
                 </td>
                 <td>
                   0

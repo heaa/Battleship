@@ -6,32 +6,34 @@
 package heaa.battleship.model;
 
 /**
- * 
+ *
  * Abstrakti luokka, joka mallintaa pelaajaa.
  */
 public abstract class Player {
-    
+
     protected Grid grid;
-    
+
     /**
      * Konstruktori luo uuden pelaajaa mallintavan olion.
      */
     public Player() {
     }
-    
+
     public void setGrid(Grid grid) {
         this.grid = grid;
     }
-    
+
     public Grid getGrid() {
         return grid;
     }
+
     /**
      * Metodi palauttaa tiedon, onko pelaajalla laivoja vaiko ei.
+     *
      * @return Boolean true, jos pelaajalla on laivoja ja false, jos ei ole.
      */
     public boolean hasShips() {
         return !(grid.getNavy().getShips().isEmpty());
     }
-    
+
 }

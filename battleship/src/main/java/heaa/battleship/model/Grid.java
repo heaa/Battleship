@@ -1,11 +1,10 @@
-
 package heaa.battleship.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 
+ *
  * Pelin ruudukkoa mallintava luokka.
  */
 public class Grid {
@@ -16,7 +15,9 @@ public class Grid {
     private int gridSize;
 
     /**
-     * Metodi luo uuden peliruudukon ja listat tuhoutuneiden laivojen sijaintien sekä ammuttujen hutien sijaintien tallentamiseen.
+     * Metodi luo uuden peliruudukon ja listat tuhoutuneiden laivojen sijaintien
+     * sekä ammuttujen hutien sijaintien tallentamiseen.
+     *
      * @param navy Laivasto, joka halutaan asettaa ruudukkoon.
      */
     public Grid(Navy navy) {
@@ -32,7 +33,7 @@ public class Grid {
     public List<Position> getMissedPositions() {
         return this.missedPositions;
     }
- 
+
     public List<Position> getDestroyedShipPositions() {
         return this.destroyedShipPositions;
     }
@@ -40,14 +41,17 @@ public class Grid {
     public Navy getNavy() {
         return navy;
     }
-    
+
     public void setGridSize(int gridSize) {
         this.gridSize = gridSize;
     }
+
     /**
-     * Metodi, joka vastaa ampumisesta ruudukkoon. Metodi tarkastaa samalla, 
-     * upposiko laivoja ja lisää mahdolliset uponneet laivat oliomuuttujalistaan. 
-     * Jos mihinkään ei osuttu, sijainti tallennetaan hutilistaan.
+     * Metodi, joka vastaa ampumisesta ruudukkoon. Metodi tarkastaa samalla,
+     * upposiko laivoja ja lisää mahdolliset uponneet laivat
+     * oliomuuttujalistaan. Jos mihinkään ei osuttu, sijainti tallennetaan
+     * hutilistaan.
+     *
      * @param position Sijainti, johon ammutaan.
      */
     public void shootGrid(Position position) {
@@ -57,12 +61,15 @@ public class Grid {
             missedPositions.add(position);
         }
     }
+
     public int getSize() {
         return this.gridSize;
     }
+
     /**
-     * Metodi palauttaa kaikki sijainnit, joihin on ammuttu siten, että yhdistetään
-     * hutilista ja osuttujen sijaintien lista.
+     * Metodi palauttaa kaikki sijainnit, joihin on ammuttu siten, että
+     * yhdistetään hutilista ja osuttujen sijaintien lista.
+     *
      * @return Lista kaikista sijainneista, joihin on ammuttu.
      */
     public List<Position> getShootedPositions() {
@@ -71,7 +78,17 @@ public class Grid {
         shootedPositions.addAll(destroyedShipPositions);
         return shootedPositions;
     }
-    
-    
+
+    /**
+     * Metodin avulla voi tarkastaa, onko tiettyyn sijaintiin jo ammuttu.
+     *
+     * @param position Sijainti, jota halutaan verrata jo ammuttuihin
+     * sijainteihin
+     * @return Boolean arvo true, jos sijaintiin on jo ammuttu ja false, jos ei
+     * vielä ole
+     */
+    public boolean isAlreadyShot(Position position) {
+        return getShootedPositions().contains(position);
+    }
 
 }

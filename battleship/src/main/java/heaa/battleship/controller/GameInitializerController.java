@@ -64,11 +64,15 @@ public class GameInitializerController {
     }
 
     /**
-     *Metodia kutsumalla voi lisätä laivan ruudukkoon, jos sijainti on mahdollinen huomioiden toivotut ruudut, muut jo asetetut laivat ja ruudukon koko.
+     * Metodia kutsumalla voi lisätä laivan ruudukkoon, jos sijainti on
+     * mahdollinen huomioiden toivotut ruudut, muut jo asetetut laivat ja
+     * ruudukon koko.
+     *
      * @param grid Peliruudukko, johon halutaan lisätä laiva
      * @param place Paikka ruudukossa, josta laivan halutaan alkavan.
      * @param shipLength Asetettavan laivan pituus ruutuina.
-     * @param horizontal Muuttuja, joka on tosi silloin kun laiva on vaakasuuntainen ja epätosi kun laiva on pystysuuntainen.
+     * @param horizontal Muuttuja, joka on tosi silloin kun laiva on
+     * vaakasuuntainen ja epätosi kun laiva on pystysuuntainen.
      */
     public void addShipToGrid(Grid grid, Position place, Integer shipLength, boolean horizontal) {
         List<Position> desiredPositions = ShipBuilder.buildDesiredPositions(shipLength, horizontal, place);

@@ -1,5 +1,6 @@
-package heaa.battleship.controller;
+package heaa.battleship.view;
 
+import heaa.battleship.controller.GameInitializerController;
 import heaa.battleship.model.AIPlayer;
 import heaa.battleship.model.GameSettings;
 import heaa.battleship.model.Grid;
@@ -7,9 +8,6 @@ import heaa.battleship.model.HumanPlayer;
 import heaa.battleship.model.Player;
 import heaa.battleship.model.Position;
 import heaa.battleship.util.ShipBuilder;
-import heaa.battleship.view.MainFrame;
-import heaa.battleship.view.PositionView;
-import heaa.battleship.view.ShipDeploymentView;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -21,6 +19,11 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.SwingUtilities;
 
+/**
+ * Luokka, joka kontrolloi pelin laivojen asetusnäkymän mallintamista.
+ *
+ * @author heaarnio
+ */
 public class ShipDeploymentViewController implements Runnable {
 
     private final String HORIZONTAL = "Horizontal";
@@ -47,6 +50,7 @@ public class ShipDeploymentViewController implements Runnable {
         MainFrame.getInstance().setPanelInView(shipDeployment.getMainPanel());
 
     }
+
     private void createShipLengthText() {
         String nextShipLenght;
         if (this.ships.empty()) {
@@ -81,7 +85,6 @@ public class ShipDeploymentViewController implements Runnable {
 
     private void deployShip(Position place) {
         try {
-            System.out.println(place);
             Player humanPlayer = gameInitializerController.getHumanPlayer();
             Grid grid = humanPlayer.getGrid();
             Integer length = ships.peek();
@@ -97,14 +100,14 @@ public class ShipDeploymentViewController implements Runnable {
             } else {
                 showErrorMessage("You can't set this ship here. Choose another location.");
             }
-            
+
         }
     }
 
     private void showErrorMessage(String message) {
-            JOptionPane.showMessageDialog(this.shipDeployment.getMainPanel(), message);
+        JOptionPane.showMessageDialog(this.shipDeployment.getMainPanel(), message);
     }
-    
+
     private void createAlignmentButtons() {
         JRadioButton horizontal = new JRadioButton(HORIZONTAL);
         horizontal.setSelected(true);

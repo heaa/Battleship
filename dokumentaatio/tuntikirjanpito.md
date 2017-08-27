@@ -19,5 +19,8 @@ Päivä | Tunnit | Kuvaus
 19.08.2017 | 4 h | Käyttöliittymän ohjelmointia
 20.08.2017 | 7 h | Käyttöliittymän ohjelmointia, javadocin kirjoittaminen
 21.08.2017 | 1 h | Javadocin kirjoittamista
+25.08.2017 | 3 h | Käyttöliittymän refaktorointia
+26.08.2017 | 3 h | Käyttöliittymän refaktorointia
+27.08.2017 | 10 h | Käyttöliittymän refaktorointia, uusien toiminnallisuuksien ohjelmointia, testien ohjelmointia, dokumentaatiota
 
 
