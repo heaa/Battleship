@@ -35,5 +35,9 @@ public abstract class Player {
     public boolean hasShips() {
         return !(grid.getNavy().getShips().isEmpty());
     }
+    
+    public int getShipAmount() {
+        return grid.getNavy().getShips().size();
+    }
 
 }

@@ -56,7 +56,7 @@ public class ShipDeploymentViewController implements Runnable {
         if (this.ships.empty()) {
             nextShipLenght = "All ships have been deployed.";
         } else {
-            nextShipLenght = "Your next ship is " + ships.peek() + " squares long.";
+            nextShipLenght = "Set ships. Your next ship is " + ships.peek() + " squares long.";
         }
         this.shipDeployment.setShipLengthDisplayerText(nextShipLenght);
     }

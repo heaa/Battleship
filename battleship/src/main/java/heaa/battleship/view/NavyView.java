@@ -16,6 +16,7 @@ public class NavyView {
     private JPanel mainPanel;
     private PositionView[][] humanGridPointers;
     private PositionView[][] aiGridPointers;
+    private JLabel humanShipAmount, computerShipAmount;
 
     public NavyView() {
         this.mainPanel = new JPanel();
@@ -30,8 +31,6 @@ public class NavyView {
     private void buildWindow() {
         int gridSize = GameSettings.getInstance().getGridSize();
         mainPanel.setLayout(new FlowLayout());
-        //    mainPanel.add(makeAPlayingArea("Computer", gridSize));
-        //    mainPanel.add(makeAPlayingArea("Human", gridSize));
     }
 
     public void showAPlayingArea(JPanel area) {
@@ -48,6 +47,14 @@ public class NavyView {
 
     public void setAiGridPointers(PositionView[][] aiGridPointers) {
         this.aiGridPointers = aiGridPointers;
+    }
+    
+    public void setHumanShipAmountDisplayer(JLabel humanShips) {
+        this.humanShipAmount = humanShips;
+    }
+    
+    public void setComputerShipAmountDisplayer(JLabel computerShips) {
+        this.computerShipAmount = computerShips;
     }
 
     public void updateView(List<Position> computerMissedPositions, List<Position> humanMissedPositions, List<Position> computerDestroyedPositions, List<Position> humanDestroyedPositions) {
@@ -70,5 +77,9 @@ public class NavyView {
         shipPositions.forEach(position -> {
             humanGridPointers[position.getI()][position.getJ()].setBackground(Color.black);
         });
+    }
+    public void updateShipStatus(int humanShips, int computerShips) {
+        this.humanShipAmount.setText(humanShips + " ships left");
+        this.computerShipAmount.setText(computerShips + " ships left");
     }
 }

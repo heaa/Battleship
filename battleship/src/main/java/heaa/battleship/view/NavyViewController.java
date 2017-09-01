@@ -13,6 +13,7 @@ import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.util.List;
 import javax.swing.BoxLayout;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
@@ -37,6 +38,8 @@ public class NavyViewController implements Runnable {
         buildLabels();
         makeAPlayingArea("Human", gridSize);
         makeAPlayingArea("Computer", gridSize);
+        this.navyView.updateShipStatus(this.gameController.getHuman().getShipAmount(),
+                this.gameController.getHuman().getShipAmount());
         showHumanShipsBlack();
         MainFrame.getInstance().setPanelInView(navyView.getMainPanel());
     }
@@ -50,9 +53,16 @@ public class NavyViewController implements Runnable {
 
     private void makeAPlayingArea(String playerName, int gridSize) {
         JPanel area = new JPanel();
+        JLabel shipAmountDisplay = new JLabel();
         area.setVisible(true);
         area.setLayout(new BoxLayout(area, BoxLayout.Y_AXIS));
         area.add(new Label(playerName));
+        area.add(shipAmountDisplay);
+        if(playerName.equals("Computer")) {
+            this.navyView.setComputerShipAmountDisplayer(shipAmountDisplay);
+        } else {
+            this.navyView.setHumanShipAmountDisplayer(shipAmountDisplay);
+        }
         area.add(makeAGrid(playerName, gridSize));
         this.navyView.showAPlayingArea(area);
     }
@@ -107,6 +117,7 @@ public class NavyViewController implements Runnable {
         List<Position> humanMissedPositions = human.getGrid().getMissedPositions();
 
         this.navyView.updateView(computerMissedPositions, humanMissedPositions, computerDestroyedPositions, humanDestroyedPositions);
+        this.navyView.updateShipStatus(human.getShipAmount(), computer.getShipAmount());
     }
 
     private void displayErrorMessage(String message) {
