@@ -17,3 +17,5 @@ Laivanupotuspeli, jossa ihmispelaaja pelaa tietokonetta vastaan. Tavoitteena on 
 [Javadoc](https://rawgit.com/heaa/Battleship/master/javadoc/index.html)
 
 [Testausdokumentti](dokumentaatio/testausdokumentti.md)
+
+[Käyttöohjeet](dokumentaatio/käyttöohjeet.md)
