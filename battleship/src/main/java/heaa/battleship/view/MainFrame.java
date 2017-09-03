@@ -7,6 +7,7 @@ package heaa.battleship.view;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 
 /**
  *
@@ -19,10 +20,20 @@ public class MainFrame {
     private static MainFrame mainFrame;
 
     private MainFrame() {
+        setLookAndFeel();
         mainWindow = new JFrame();
         mainWindow.setSize(1200, 600);
         mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainWindow.setVisible(true);
+    }
+    
+    private void setLookAndFeel() {
+        try {
+            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+        } catch(Exception e) {
+            throw new RuntimeException(e);
+        }
+        
     }
 
     public static MainFrame getInstance() {

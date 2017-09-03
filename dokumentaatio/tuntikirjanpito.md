@@ -23,5 +23,7 @@ Päivä | Tunnit | Kuvaus
 26.08.2017 | 3 h | Käyttöliittymän refaktorointia
 27.08.2017 | 10 h | Käyttöliittymän refaktorointia, uusien toiminnallisuuksien ohjelmointia, testien ohjelmointia, dokumentaatiota
 01.09.2017 | 1 h | Pieniä viilauksia käyttöliittymään, HTML-javadocin generointi
+02.09.2017 | 0.5 h | Käyttöohjeiden kirjoittaminen
+03.09.2017 | 2 h | Lisää loppupalautukseen vaadittavaa dokumentaatiota, jar-tiedoston luominen, release
 
 

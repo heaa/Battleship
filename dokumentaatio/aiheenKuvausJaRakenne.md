@@ -26,3 +26,13 @@ Peli etenee vuoropohjaisesti siten, että kumpikin pelaaja ampuu vuorollaan yhte
 
 ![Sekvenssikaavio ruudukon ampumistoiminnosta](/dokumentaatio/shootingGrid.png)
 
+**Rakennekuvaus:**
+
+Sovellus on rakennettu kerroksittain MVC-mallia jäljitellen. Ylimpänä on näkymäluokat, joiden toiminta perustuu view-kontrollereihin ja varsinaisiin view-näkymäluokkiin. View-kontrollerit kutsuvat alempia pelikontrollereita. Pelikontrollerit hallinnoivat pelin toimintaa ja kutsuvat model-luokista tietoa erityisesti pelaaja-luokan kautta.
+
+Näkymästä vastaavat luokat on jaoteltu näkymittäin siten, että jokaista pelinäkymää kohden on yksi view-malliluokka ja yksi sitä hallinnoiva view-kontrolleriluokka. Näkymä-malliluokat ovat riippuvaisia niitä hallinnoivista kontrolleriluokista: kontrolleriluokka luo näkymän ja antaa sille näytettävät oliot (esimerkiksi JLabelit ja JFramet). Jotta ohjelman rakenne pysyisi yksinkertaisena, näkymän malliluokilla on pääasiassa vain set- ja get-metodeja, joita kontrollerit kutsuvat.
+
+Pelikontrolleriluokat sisältävät rajapinnan pelin tapahtumien kulkuun, sovelluksen tilan hakemiseen ja tilanteen päivittämiseen. GameInitializerController vastaa pelin alustamisesta ja lähtötilan asetuksista. GameController hallinnoi pelin kulkua ja tilanteen päivittämistä pelin aikana.
+
+Pelikontrollerit käyttävät hyväkseen malliluokkien olioita. Pelaajaa mallintaa abstrakti pelaajaluokka, jonka perii erillinen ihmispelaaja sekä tekoälypelaaja. Tekoälypelaajalle on toteutettu erilainen ampumistoiminto kuin ihmispelaajalle, minkä takia luokkajako on perusteltu. Kummankin pelaajan ruudukkoa mallinnetaan ruudukkoluokalla, joka sisältää viitteen pelaajan omaan laivastoon. Laivasto sisältää laivaoliot, joilla on viitteet sijaintitietoon. Kutakin ruudukon ruutua ja siten laivan sijaintia mallinnetaan sijaintiolioluokan avulla. Sijainti koostuu vaaka- ja pystysuuntaisista indeksiarvoista.
+
